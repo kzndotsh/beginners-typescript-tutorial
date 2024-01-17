@@ -6,14 +6,13 @@ interface User {
   lastName: string;
 }
 
-const createThenGetUser = async (
+const createThenGetUser =
+  async (
   createUser: () => Promise<string>,
   getUser: (id: string) => Promise<User>,
-): Promise<User> => {
+  ): Promise<User> => {
   const userId: string = await createUser();
-
   const user = await getUser(userId);
-
   return user;
 };
 
